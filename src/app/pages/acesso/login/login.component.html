@@ -15,7 +15,16 @@
             </div>
 
             <div class="uk-flex uk-flex-center@m uk-flex-right@l">
-                <button class="uk-button uk-button-secondary">Entrar</button>
+                <button [routerLink]="['/']" class="uk-button uk-button-secondary">
+                    Entrar
+                </button>
             </div>
         </div>
+
+        <p class="uk-text-center">
+            <a [routerLink]="['/cadastro']" class="uk-button uk-width-1-1 uk-button-large uk-button-secondary uk-margin-small-bottom">Quero me
+              Cadastrar</a>
+            <br>
+            <a [routerLink]="['/recuperar-senha']" class="uk-button uk-button-link">Esqueci minha senha</a>
+          </p>
 </div>

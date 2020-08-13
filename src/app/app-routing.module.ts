@@ -1,3 +1,5 @@
+import { CadastroComponent } from './pages/acesso/cadastro/cadastro.component';
+import { RestaurarLoginComponent } from './pages/acesso/restaurar-login/restaurar-login.component';
 import { PetsComponent } from './pages/acesso/pets/pets.component';
 import { CarrinhoComponent } from './pages/loja/carrinho/carrinho.component';
 import { ProdutosComponent } from './pages/loja/produtos/produtos.component';
@@ -21,8 +23,8 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent},
-  { path: 'recuperar-senha', component: LoginComponent},
-  { path: 'cadastro', component: LoginComponent},
+  { path: 'recuperar-senha', component: RestaurarLoginComponent},
+  { path: 'cadastro', component: CadastroComponent},
 ];
 
 @NgModule({
