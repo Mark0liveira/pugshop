@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { MasterPageComponent } from './pages/master/frame-master';
 import { RestaurarLoginComponent } from './pages/acesso/restaurar-login/restaurar-login.component';
 import { ProdutosComponent } from './pages/loja/produtos/produtos.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CarrinhoComponent } from './pages/loja/carrinho/carrinho.component';
 import { CadastroComponent } from './pages/acesso/cadastro/cadastro.component';
 import { LoginComponent } from './pages/acesso/login/login.component';
