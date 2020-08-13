@@ -1,3 +1,4 @@
+import { Produto } from './../../../models/produto.model';
 import { DataService } from './../../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProdutosComponent implements OnInit {
 
-  public produtos$: Observable<any[]>;
+  public produtos$: Observable<Produto[]>;
 
   constructor(public dataService: DataService) { }
 
