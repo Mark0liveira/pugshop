@@ -8,9 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
+    private url = 'http://localhost:3000/v1';
+
     constructor(public http: HttpClient){}
 
     public getProducts(): Observable<any> {
-        return this.http.get<[Produto]>('http://localhost:3000/v1/products');
+        return this.http.get<[Produto]>(`${this.url}/products`);
+    }
+
+    public autenticar(): Observable<any> {
+        return this.http.get<[any]>(`${this.url}/accounts/authenticate`);
     }
 }
