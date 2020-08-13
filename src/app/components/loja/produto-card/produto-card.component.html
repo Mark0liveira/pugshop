@@ -4,7 +4,7 @@
       class="uk-margin-small-top uk-border-circle" alt="">
     </div>
     <div class="uk-card-body">
-      <h3 class="uk-card-title">{{produto.price}}</h3>
+      <h3 class="uk-card-title">{{produto.price/100 | currency: 'BRL'}}</h3>
       <p style="height: 50px;">
         {{produto.title}}
       </p>
