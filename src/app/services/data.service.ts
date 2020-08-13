@@ -16,7 +16,11 @@ export class DataService {
         return this.http.get<[Produto]>(`${this.url}/products`);
     }
 
-    public autenticar(): Observable<any> {
-        return this.http.get<[any]>(`${this.url}/accounts/authenticate`);
+    public autenticar(model: any): Observable<any> {
+        return this.http.post<[any]>(`${this.url}/accounts/authenticate`, model);
+    }
+
+    public refreshToken(): Observable<any> {
+        return this.http.post<[any]>(`${this.url}/accounts/refresh-token`, null);
     }
 }

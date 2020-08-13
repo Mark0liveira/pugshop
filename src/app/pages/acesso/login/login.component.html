@@ -3,23 +3,25 @@
             <span class="uk-icon" uk-icon="icon: logo-color-dark; ratio: 1"></span>
         </a>
 
-        
-        <div class="uk-card uk-card-secondary uk-card-body uk-margin">
-            <h3 class="uk-card-title">Autentique-se</h3>
-            
-            <div class="uk-margin">
-                <input class="uk-input" type="text" placeholder="E-mail">
-            </div>
-            <div class="uk-margin">
-                <input class="uk-input" type="text" placeholder="Senha">
-            </div>
+        <form [formGroup]="form" class="uk-margin">
+            <div class="uk-card uk-card-secondary uk-card-body uk-margin">
+                <h3 class="uk-card-title">Autentique-se</h3>
+                
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="E-mail" formControlName="email">
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Senha" formControlName="password">
+                </div>
 
-            <div class="uk-flex uk-flex-center@m uk-flex-right@l">
-                <button [routerLink]="['/']" class="uk-button uk-button-secondary">
-                    Entrar
-                </button>
+                <div class="uk-flex uk-flex-center@m uk-flex-right@l">
+                    <button [disabled]="form.invalid" [routerLink]="['/']" class="uk-button uk-button-secondary"
+                    (click)="autentica()">
+                        Entrar
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
 
         <p class="uk-text-center">
             <a [routerLink]="['/cadastro']" class="uk-button uk-width-1-1 uk-button-large uk-button-secondary uk-margin-small-bottom">Quero me
