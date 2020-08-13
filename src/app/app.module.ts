@@ -1,9 +1,11 @@
-import { MasterPageComponent } from './pages/master/frame-master';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { MasterPageComponent } from './pages/master/frame-master';
 import { RestaurarLoginComponent } from './pages/acesso/restaurar-login/restaurar-login.component';
 import { ProdutosComponent } from './pages/loja/produtos/produtos.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,7 +27,8 @@ import { LoginComponent } from './pages/acesso/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
