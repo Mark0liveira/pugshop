@@ -1,7 +1,9 @@
+import { Security } from './../../../utils/user.util';
 import { CustomValidator } from './../../../validators/custom.validator';
 import { DataService } from './../../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login.component.html',
@@ -13,7 +15,8 @@ export class LoginComponent implements OnInit {
   public busy = false;
 
   constructor(private fb: FormBuilder,
-              private dataService: DataService) {
+              private dataService: DataService,
+              private router: Router) {
     this.form = this.fb.group({
       email: ['', Validators.compose([
         Validators.required,
@@ -30,17 +33,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const token = localStorage.getItem('token.pugshop');
+    const token = Security.getToken();
     if (token) {
       this.busy = true;
       this.dataService.refreshToken()
       .subscribe(
         (data: any) => {
-          localStorage.setItem('token.pugshop', data.token);
+          this.setUser(data.customer, data.token);
           this.busy = false;
         },
         (err) => {
-          localStorage.clear();
+          Security.clear();
           this.busy = false;
         });
     }
@@ -51,13 +54,18 @@ export class LoginComponent implements OnInit {
     this.dataService.autenticar(this.form.value)
       .subscribe(
         (data: any) => {
-          localStorage.setItem('token.pugshop', data.token);
+          this.setUser(data.customer, data.token);
           this.busy = false;
         },
         (err) => {
           console.log(err);
           this.busy = false;
         });
+  }
+
+  public setUser(user, token): void {
+    Security.set(user, token);
+    this.router.navigate([`/`]);
   }
 
 }
