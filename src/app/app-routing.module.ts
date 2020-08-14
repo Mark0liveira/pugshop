@@ -1,3 +1,4 @@
+import { ProfileComponent } from './pages/acesso/profile/profile.component';
 import { AuthService } from './services/auth.service';
 import { CadastroComponent } from './pages/acesso/cadastro/cadastro.component';
 import { RestaurarLoginComponent } from './pages/acesso/restaurar-login/restaurar-login.component';
@@ -7,7 +8,7 @@ import { ProdutosComponent } from './pages/loja/produtos/produtos.component';
 import { MasterPageComponent } from './pages/master/frame-master';
 import { LoginComponent } from './pages/acesso/login/login.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '',
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'conta',
     component: MasterPageComponent,
     children: [
+      { path: '', component: ProfileComponent },
       { path: 'pets', component: PetsComponent }
     ]
   },

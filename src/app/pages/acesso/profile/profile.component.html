@@ -1,0 +1,37 @@
+<div class="uk-position-center">
+    <a>
+        <span class="uk-icon" uk-icon="icon: logo-color-dark; ratio: 1"></span>
+    </a>
+
+    <app-loading *ngIf="busy"></app-loading>
+    
+    <div *ngIf="!busy" [formGroup]="form" class="uk-card uk-card-secondary uk-card-body uk-margin">
+        <div class="uk-margin">
+            <input class="uk-input" 
+            type="text" 
+            placeholder="Nome" 
+            formControlName="name">
+        </div>
+        <div class="uk-margin">
+            <input class="uk-input" 
+            type="email" 
+            placeholder="E-mail" 
+            formControlName="email">
+        </div>
+        <div class="uk-margin">
+            <input appMask="###.###.###-##" 
+            class="uk-input" 
+            type="tel" 
+            placeholder="CPF" 
+            formControlName="document">
+        </div>
+
+        <div class="uk-flex uk-flex-center@m uk-flex-right@l">
+            <button (click)="submit()"
+            [disabled]="form.invalid" 
+            class="uk-button uk-button-secondary">
+                Salvar
+            </button>
+        </div>
+    </div>
+</div>

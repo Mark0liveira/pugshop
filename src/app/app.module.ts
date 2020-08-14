@@ -20,6 +20,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { MaskDirective } from './diretivas/mask.directive';
+import { ProfileComponent } from './pages/acesso/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MaskDirective } from './diretivas/mask.directive';
     MasterPageComponent,
     ProdutoCardComponent,
     LoadingComponent,
-    MaskDirective
+    MaskDirective,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
