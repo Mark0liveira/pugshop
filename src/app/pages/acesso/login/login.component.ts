@@ -16,12 +16,12 @@ export class LoginComponent implements OnInit {
     this.form = this.fb.group({
       email: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(60),
+        Validators.minLength(14),
+        Validators.maxLength(14),
       ])],
       password: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
+        Validators.minLength(6),
         Validators.maxLength(60),
       ])],
     });

@@ -1,3 +1,4 @@
+import { MaskDirective } from './diretivas/mask.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +29,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     CarrinhoComponent,
     MasterPageComponent,
     ProdutoCardComponent,
-    LoadingComponent
+    LoadingComponent,
+    MaskDirective
   ],
   imports: [
     BrowserModule,
