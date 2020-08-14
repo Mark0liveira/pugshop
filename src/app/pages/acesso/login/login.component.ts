@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const token = Security.getToken();
-    if (token) {
+    const hasToken = Security.hasToken();
+    if (hasToken) {
       this.busy = true;
       this.dataService.refreshToken()
       .subscribe(
