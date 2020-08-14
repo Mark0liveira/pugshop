@@ -3,16 +3,26 @@
         <span class="uk-icon" uk-icon="icon: logo-color-dark; ratio: 1"></span>
     </a>
 
+    <app-loading *ngIf="busy"></app-loading>
     
-    <div class="uk-card uk-card-secondary uk-card-body uk-margin">
+    <div *ngIf="!busy" class="uk-card uk-card-secondary uk-card-body uk-margin">
         <h3 class="uk-card-title">Restaurar senha</h3>
         
-        <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="E-mail">
+        <div [formGroup]="form" class="uk-margin">
+            <input class="uk-input" 
+            type="tel" 
+            placeholder="CPF"
+            formControlName="document"
+            appMask="###.###.###-##">
         </div>
 
         <div class="uk-flex uk-flex-center@m uk-flex-right@l">
-            <button class="uk-button uk-button-secondary">Enviar</button>
+            <button [disabled]="form.invalid" 
+            (click)="submit()" 
+            class="uk-button uk-button-secondary"
+            [routerLink]="['/login']">
+                Enviar
+            </button>
         </div>
     </div>
 </div>

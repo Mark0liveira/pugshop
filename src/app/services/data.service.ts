@@ -27,4 +27,8 @@ export class DataService {
     public create(model: any): Observable<any> {
         return this.http.post<[any]>(`${this.url}/accounts`, model);
     }
+
+    public restaura(model: any): Observable<any> {
+        return this.http.post<[any]>(`${this.url}/accounts/reset-password`, model);
+    }
 }

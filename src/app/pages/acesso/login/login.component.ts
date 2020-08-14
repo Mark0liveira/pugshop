@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public autentica(): void {
+  public submit(): void {
     this.busy = true;
     this.dataService.autenticar(this.form.value)
       .subscribe(

@@ -18,36 +18,36 @@ export class CadastroComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private toastService: ToastrService,
               private dataService: DataService) {
-    this.form = this.fb.group({
-      name: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(30)
-      ])],
-      email: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(30),
-        CustomValidator.EmailValidator
-      ])],
-      cpf: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(14),
-        Validators.maxLength(14),
-        CustomValidator.isCpf()
-      ])],
-      password: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(30)
-      ])],
-    });
+                this.form = this.fb.group({
+                  name: ['', Validators.compose([
+                    Validators.required,
+                    Validators.minLength(3),
+                    Validators.maxLength(30)
+                  ])],
+                  email: ['', Validators.compose([
+                    Validators.required,
+                    Validators.minLength(3),
+                    Validators.maxLength(30),
+                    CustomValidator.EmailValidator
+                  ])],
+                  cpf: ['', Validators.compose([
+                    Validators.required,
+                    Validators.minLength(14),
+                    Validators.maxLength(14),
+                    CustomValidator.isCpf()
+                  ])],
+                  password: ['', Validators.compose([
+                    Validators.required,
+                    Validators.minLength(3),
+                    Validators.maxLength(30)
+                  ])],
+                });
   }
 
   ngOnInit(): void {
   }
 
-  create(): void {
+  public submit(): void {
     this.busy = true;
 
     this.dataService.create(this.form.value)
