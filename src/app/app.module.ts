@@ -1,9 +1,9 @@
-import { AuthService } from './services/auth.service';
-import { MaskDirective } from './diretivas/mask.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { LoginComponent } from './pages/acesso/login/login.component';
 import { ProdutoCardComponent } from './components/loja/produto-card/produto-card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
+import { MaskDirective } from './diretivas/mask.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DataService } from './services/data.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [DataService, AuthService],
   bootstrap: [AppComponent]

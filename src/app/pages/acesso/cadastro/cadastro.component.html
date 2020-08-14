@@ -3,25 +3,44 @@
         <span class="uk-icon" uk-icon="icon: logo-color-dark; ratio: 1"></span>
     </a>
 
+    <app-loading *ngIf="busy"></app-loading>
     
-    <div class="uk-card uk-card-secondary uk-card-body uk-margin">
+    <div *ngIf="!busy" [formGroup]="form" class="uk-card uk-card-secondary uk-card-body uk-margin">
         <h3 class="uk-card-title">Cadastre-se</h3>
         
         <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="Nome">
+            <input class="uk-input" 
+            type="text" 
+            placeholder="Nome" 
+            formControlName="name">
         </div>
         <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="E-mail">
+            <input class="uk-input" 
+            type="email" 
+            placeholder="E-mail" 
+            formControlName="email">
         </div>
         <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="CPF">
+            <input appMask="###.###.###-##" 
+            class="uk-input" 
+            type="tel" 
+            placeholder="CPF" 
+            formControlName="cpf">
         </div>
         <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="Senha">
+            <input class="uk-input" 
+            type="password" 
+            placeholder="Senha" 
+            formControlName="password">
         </div>
 
         <div class="uk-flex uk-flex-center@m uk-flex-right@l">
-            <button class="uk-button uk-button-secondary">Cadastrar</button>
+            <button (click)="create()"
+            [disabled]="form.invalid" 
+            class="uk-button uk-button-secondary"
+            [routerLink]="['/login']">
+                Cadastrar
+            </button>
         </div>
     </div>
 </div>

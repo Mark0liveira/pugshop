@@ -23,4 +23,8 @@ export class DataService {
     public refreshToken(): Observable<any> {
         return this.http.post<[any]>(`${this.url}/accounts/refresh-token`, null);
     }
+
+    public create(model: any): Observable<any> {
+        return this.http.post<[any]>(`${this.url}/accounts`, model);
+    }
 }
